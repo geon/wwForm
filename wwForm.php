@@ -215,13 +215,13 @@ class wwText extends wwFormElementBase{
 }
 
 class wwEmail extends wwText{
-  function __construct($Name, $Label, $PreSetValue='', $ErrorMessage = 'Please enter a valid e-mail address.', $Required){
+  function __construct($Name, $Label, $PreSetValue = '', $ErrorMessage = 'Please enter a valid e-mail address.', $Required = false){
     parent::__construct($Name, $Label, false, $PreSetValue, '^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})'.($Required ? '' : '?').'$', $ErrorMessage, false);
   }
 }
 
 class wwNumeric extends wwText{
-  function __construct($Name, $Label, $PreSetValue='', $ErrorMessage = 'Please enter a numeric value.', $Required){
+  function __construct($Name, $Label, $PreSetValue = '', $ErrorMessage = 'Please enter a numeric value.', $Required = false){
     $this->Required = $Required;
     parent::__construct($Name, $Label, false, $PreSetValue, '^(\d+([\.,:]\d+)?)'.($Required ? '' : '?').'$', $ErrorMessage, false);
   }
@@ -231,7 +231,7 @@ class wwNumeric extends wwText{
 }
 
 class wwDate extends wwText{
-  function __construct($Name, $Label, $PreSetValue='', $ErrorMessage = 'Please enter a date in the format YYY-MM-DD.', $Required){
+  function __construct($Name, $Label, $PreSetValue = '', $ErrorMessage = 'Please enter a date in the format YYY-MM-DD.', $Required = false){
     $this->Required = $Required;
     parent::__construct($Name, $Label, false, $PreSetValue, '^(\d{4}-\d{2}-\d{2})'.($Required ? '' : '?').'$', $ErrorMessage, false);
   }
@@ -250,7 +250,7 @@ class wwDate extends wwText{
 }
 
 class wwHTTPURL extends wwText{
-  function __construct($Name, $Label, $PreSetValue='', $ErrorMessage = 'Please enter a valid web page address.', $Required){
+  function __construct($Name, $Label, $PreSetValue = '', $ErrorMessage = 'Please enter a valid web page address.', $Required = false){
     $this->Required = $Required;
     parent::__construct($Name, $Label, false, $PreSetValue, '^(((http|https):\/\/)?(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)?'.($Required ? '' : '?').'$', $ErrorMessage, false);
   }
@@ -299,7 +299,7 @@ class wwHTTPURL extends wwText{
 
 // $Options = array(array('Title'=>string, 'Value'=>mixed) [, ...])
 class wwSelectBox extends wwFormElementBase{
-  function __construct($Name, $Label, $Options, $PreSetValue=NULL){
+  function __construct($Name, $Label, $Options, $PreSetValue = NULL){
     $this->Name = $Name;
     $this->Label = $Label;
     $this->Options = $Options;

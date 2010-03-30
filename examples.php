@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <title>wwForm examples</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <link rel="stylesheet" title="Standard" href="wwForm.css" media="screen" />
   </head>
   <body>
@@ -12,7 +13,7 @@
 
 
 
-	require_once('class_ww.php');
+	require_once('wwForm.php');
 
 	class cSimpleContactForm extends wwFormBase{
 		function Populate(){
