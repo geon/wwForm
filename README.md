@@ -102,6 +102,8 @@ The base class wwForm implements all common form logic, coordinating the renderi
 
 The form will always be posted back to the same URL where it was rendered, expecting the form logic in the method Execute() to handle it. Because of this it is important that any URL using a certain form always call the Execute() method, in case the form was posted.
 
+The form will be uniquely identified by a hidden form field. This ID can be specified by a string argument in the form constructor. This is very useful if you need to access a specific form with Javascript or CSS. If you don't supply any argument to the constructor, the form will create a unique ID sufficient for the internal Javascripting to work. It is based on the line number where the constructor was called, so don't use this ID for anything, or your code bill break very easily.
+
 The method Render() will render the complete form HTML, using preset values or the data from the last post, so no input will be lost if the form is invalid. It is important to call Execute() before Render(), or the form might be rendered with the wrong values in the input fields.
 
 When a form posted back to the script is Execute():ed and passes the validation, the Process() method will automatically be called. Request the form data using GetReply() and do any additional validation here. If some data are found to be invalid, say if a start-date is later than an end-date, you can invalidate the form with ServerSideInvalidate() and return. This method takes an error message as an argument, displaying it to the user just like any other invalid form element.
