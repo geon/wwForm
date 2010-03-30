@@ -1,5 +1,6 @@
 <?php
-
+// This software is released under the MIT license. http://www.opensource.org/licenses/mit-license.php
+// Avaliable from http://github.com/geon/wwForm
 
 
 require_once('action_demagicquotes.php');
