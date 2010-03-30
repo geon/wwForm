@@ -1,5 +1,0 @@
-This collection of classes makes it easy to create simple or complex forms.
-
-You define the fields and behaviour once, in one place, and it will automatically handle rendering, validation and execution of code to handle the response.
-
-Fields are validated in the browser for convinience, and on the server for security. Additional checks can easily be done on the server, invalidatioin the submitted form. All this is done transparently to the user, in a consistent way.
