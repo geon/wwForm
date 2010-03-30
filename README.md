@@ -1,7 +1,7 @@
 ﻿wwForm
 ======
 
-This collection of classes, released under the MIT license makes it easy to create simple or complex forms.
+This collection of classes, released under the MIT license, makes it easy to create simple or complex forms.
 
 You define the fields and behavior once, in one place, and it will automatically handle rendering, validation, re-rendering on error and execution of code to handle the valid response.
 
