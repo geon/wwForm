@@ -1,21 +1,21 @@
 <?php
 
-	require_once('wwForm.php');
+	require_once('../wwForm.php');
 
 	$WizardPage = null;
 	switch(isset($_GET['Page']) ? (int)$_GET['Page'] : 1){
 		case 1:
 			class Page1 extends wwFormBase{
 				function Populate(){
-					$this->Elements[] = new wwText('Name', 'Your Name:');
-					$this->Elements[] = new wwNumeric('Age', 'Your Age:');
+					$this->Elements[] = new wwText('Name', 'Your Name:', false, '', '.+', 'Please tell us your name');
+					$this->Elements[] = new wwNumeric('Age', 'Your Age:', '', 'Please tell us your age.', true);
 
 					$this->Elements[] = new wwSelectBox(
 						'Problem',
 						'Please tell us why you have trouble meeting girls:',
 						array(
-							'World of Warcraft' => 'WoW',
-							'Dungeons and Dragons' => 'DnD',
+							array('Title' => 'World of Warcraft', 'Value' => 'WoW'),
+							array('Title' => 'Dungeons and Dragons', 'Value' => 'DnD'),
 						)
 					);
 
@@ -31,9 +31,9 @@
 					// Select next page depending on the answer.
 					$NextPageIDs = array(
 						'WoW' => 2,
-						'DoD' => 3,
+						'DnD' => 3,
 					);
-					header('Location: http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']).'?Page='.$NextPageIDs[$Reply['Problem']]);
+					header('Location: http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?Page='.$NextPageIDs[$Reply['Problem']]);
 					exit();
 				}
 			}
@@ -51,7 +51,7 @@
 				}
 			
 				function Process(){
-					header('Location: http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']).'?Page=4');
+					header('Location: http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?Page=4');
 					exit();
 				}
 			}
@@ -69,7 +69,7 @@
 				}
 			
 				function Process(){
-					header('Location: http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']).'?Page=4');
+					header('Location: http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?Page=4');
 					exit();
 				}
 			}
@@ -85,9 +85,9 @@
 
 
 	// Template stuff.
-	define('TITLE', 'wwForm Examples - Simple Contact Form');
-	define('DESCRIPTION', 'How to build a simple contact form.');
-	define('PAGE_ID', 'simple-contact-form');
+	define('TITLE', 'wwForm Examples - Wizard');
+	define('DESCRIPTION', 'How to build a wizard.');
+	define('PAGE_ID', 'wizard');
 	require('template_header.php');
 
 

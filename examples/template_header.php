@@ -24,7 +24,7 @@
 		<meta name="keywords" content="<?php print(htmlspecialchars(KEYWORDS)); ?>" />
 		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 		<meta name="description" content="<?php print(htmlspecialchars(DESCRIPTION)); ?>" />
-		<link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="../wwForm.css" />
 	</head>
 	<body>
 		<div id="<?php print(PAGE_ID); ?>">

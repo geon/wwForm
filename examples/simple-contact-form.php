@@ -1,6 +1,6 @@
 <?php
 
-	require_once('wwForm.php');
+	require_once('../wwForm.php');
 
 	class cSimpleContactForm extends wwFormBase{
 		function Populate(){
@@ -39,7 +39,10 @@
 
 	// Page content
 	print('<h1>Simple Contact Form</h1>');
-	$SimpleContactForm->Render();
+	if(!$SimpleContactForm->IsValidPostBack())
+		$SimpleContactForm->Render();
+	else
+		print('Your message has been sent.');
 
 
 	// Template stuff.

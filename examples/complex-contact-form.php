@@ -1,6 +1,6 @@
 <?php
 
-	require_once('wwForm.php');
+	require_once('../wwForm.php');
 
 	class cComplexContactForm extends wwFormBase{
 		function Populate(){
@@ -43,9 +43,9 @@
 
 
 	// Template stuff.
-	define('TITLE', 'wwForm Examples - Simple Contact Form');
-	define('DESCRIPTION', 'How to build a simple contact form.');
-	define('PAGE_ID', 'simple-contact-form');
+	define('TITLE', 'wwForm Examples - Complex Contact Form');
+	define('DESCRIPTION', 'How to build a complex contact form.');
+	define('PAGE_ID', 'complex-contact-form');
 	require('template_header.php');
 
 
