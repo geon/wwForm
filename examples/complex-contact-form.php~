@@ -15,32 +15,6 @@
 
 	require_once('wwForm.php');
 
-	class cSimpleContactForm extends wwFormBase{
-		function Populate(){
-			// Message
-			$this->Elements[] = new wwText('Message', 'Message:', true);
-
-			// Submit button
-			$this->Elements[] = new wwSubmitButton('Send', 'Send message');
-		}
-
-		function Process(){
-			$Reply = $this->GetReply();
-			
-			// Send the message.
-			mail('test@example.com', 'blah, blah', $Reply['Message']);
-		}
-	}
-	$SimpleContactForm = new cSimpleContactForm();
-	$SimpleContactForm->Execute();
-	print('<h1>Simple Contact Form</h1>');
-	$SimpleContactForm->Render();
-
-
-
-
-
-
 
 
 
