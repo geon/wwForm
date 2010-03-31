@@ -110,4 +110,78 @@ When a form posted back to the script is Execute():ed and passes the validation,
 
 If all the data seems to be OK, use the Process() method to handle it somehow. It would usually involve saving a file, modifying the database or sending an email. If you need to send a deader to the client browser, such as a cookie or a redirect, make sure you call Execute() before you output any HTML, since headers must normally be sent first of all.
 
+Available field element classes
+-------------------------------
+
+wwHidden
+	$Name
+	$Value
+
+wwSubmitButton
+	$Name
+	$Label
+	$Warning=''
+
+wwText
+	$Name
+	$Label
+	$Multiline=false
+	$PreSetValue=''
+	$ValidationExpression='.*'
+	$ErrorMessage=''
+	$HideText=false
+	$ClearHiddenOnPostBack=false
+
+wwEmail
+	$Name
+	$Label
+	$PreSetValue = ''
+	$ErrorMessage = 'Please enter a valid e-mail address.'
+	$Required = false
+
+wwNumeric
+	$Name
+	$Label
+	$PreSetValue = ''
+	$ErrorMessage = 'Please enter a numeric value.'
+	$Required = false
+
+wwDate
+	$Name
+	$Label
+	$PreSetValue = ''
+	$ErrorMessage = 'Please enter a date in the format YYY-MM-DD.'
+	$Required = false
+
+wwHTTPURL
+	$Name
+	$Label
+	$PreSetValue = ''
+	$ErrorMessage = 'Please enter a valid web page address.'
+	$Required = false
+
+wwSelectBox
+	$Name
+	$Label
+	$Options
+	$PreSetValue = NULL
+
+wwCheckBoxList
+	$Name
+	$Label
+	$Options
+
+wwFileUpload
+	$Name
+	$Label
+	$ValidationExpression = '.'
+	$ErrorMessage = ''
+
+wwCheckBox
+	$Name
+	$Label
+	$PreChecked = false
+	$Required = false
+	$ErrorMessage = ''
+
 
