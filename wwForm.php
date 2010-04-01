@@ -188,6 +188,7 @@ class wwText extends wwFormElementBase{
     $this->ErrorMessage = $ErrorMessage;
     $this->PreSetValue = $PreSetValue;
     $this->HideText = $HideText;
+    $this->ClearHiddenOnPostBack = $ClearHiddenOnPostBack;
   }
 
   function RenderInput($IsPostBack){
@@ -196,7 +197,7 @@ class wwText extends wwFormElementBase{
     else if($this->HideText == false)
       print('<input type="text" name="'.$this->Name.'" value="'.($IsPostBack ? (htmlentities($this->GetReply(), ENT_QUOTES)) : (htmlentities($this->PreSetValue, ENT_QUOTES))).'" />');
     else
-      print('<input type="password" name="'.$this->Name.'" value="'.($IsPostBack ? (htmlentities($this->GetReply(), ENT_QUOTES)) : (htmlentities($this->PreSetValue, ENT_QUOTES))).'" />');
+      print('<input type="password" name="'.$this->Name.'" value="'.(($IsPostBack && !$this->ClearHiddenOnPostBack) ? (htmlentities($this->GetReply(), ENT_QUOTES)) : (htmlentities($this->PreSetValue, ENT_QUOTES))).'" />');
   }
 
   function RenderValidationScript(){
