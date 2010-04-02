@@ -59,7 +59,7 @@ abstract class wwFormBase{
 
   protected function RenderErrorMessage(){
     if(isset($this->ServerSideErrorMessage))
-      print('<p class="ErrorMessage" id="'.$this->UniqueID.'_ErrorMessage">'.$this->ServerSideErrorMessage.'</p><script defer type="text/javascript">'."\n//<![CDATA[\n".'document.getElementById("'.$this->UniqueID.'_ErrorMessage").style.display = "none"; alert("'.addslashes($this->ServerSideErrorMessage).'");'."\n//]]>\n".'</script>');
+      print('<p class="ErrorMessage" id="'.$this->UniqueID.'_ErrorMessage">'.$this->ServerSideErrorMessage.'</p><script defer type="text/javascript">'."\n//<![CDATA[\n".'document.getElementById("'.$this->UniqueID.'_ErrorMessage").style.display = "none"; setTimeout(function(){alert("'.addslashes($this->ServerSideErrorMessage).'");}, 0);'."\n//]]>\n".'</script>');
   }
 
   protected function RenderValidationScript(){
@@ -218,7 +218,7 @@ class wwText extends wwFormElementBase{
 
 class wwEmail extends wwText{
   function __construct($Name, $Label, $PreSetValue = '', $ErrorMessage = 'Please enter a valid e-mail address.', $Required = false){
-    parent::__construct($Name, $Label, false, $PreSetValue, '^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})'.($Required ? '' : '?').'$', $ErrorMessage, false);
+    parent::__construct($Name, $Label, false, $PreSetValue, '^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})'.($Required ? '' : '?').'$', $ErrorMessage);
   }
 }
 
