@@ -193,11 +193,11 @@ class wwText extends wwFormElementBase{
 
   function RenderInput($IsPostBack){
     if($this->Multiline)
-      print('<textarea name="'.$this->Name.'" cols="30" rows="10">'.($IsPostBack ? (htmlentities($this->GetReply(), ENT_QUOTES)) : (htmlentities($this->PreSetValue, ENT_QUOTES))).'</textarea>');
+      print('<textarea name="'.$this->Name.'" cols="30" rows="10">'.($IsPostBack ? (htmlentities($this->GetReply(), ENT_QUOTES, 'UTF-8')) : (htmlentities($this->PreSetValue, ENT_QUOTES, 'UTF-8'))).'</textarea>');
     else if($this->HideText == false)
-      print('<input type="text" name="'.$this->Name.'" value="'.($IsPostBack ? (htmlentities($this->GetReply(), ENT_QUOTES)) : (htmlentities($this->PreSetValue, ENT_QUOTES))).'" />');
+      print('<input type="text" name="'.$this->Name.'" value="'.($IsPostBack ? (htmlentities($this->GetReply(), ENT_QUOTES, 'UTF-8')) : (htmlentities($this->PreSetValue, ENT_QUOTES, 'UTF-8'))).'" />');
     else
-      print('<input type="password" name="'.$this->Name.'" value="'.(($IsPostBack && !$this->ClearHiddenOnPostBack) ? (htmlentities($this->GetReply(), ENT_QUOTES)) : (htmlentities($this->PreSetValue, ENT_QUOTES))).'" />');
+      print('<input type="password" name="'.$this->Name.'" value="'.(($IsPostBack && !$this->ClearHiddenOnPostBack) ? (htmlentities($this->GetReply(), ENT_QUOTES, 'UTF-8')) : (htmlentities($this->PreSetValue, ENT_QUOTES, 'UTF-8'))).'" />');
   }
 
   function RenderValidationScript(){
