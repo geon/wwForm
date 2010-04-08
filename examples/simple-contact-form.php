@@ -15,7 +15,6 @@
 			$Reply = $this->GetReply();
 		
 			// Send the message. (The form is expected to be submitted as utf-8.)
-			mail('test@example.com', 'blah, blah', $Reply['Message']);
 			mail(
 				'test@example.com',
 				'=?UTF-8?B?'.base64_encode('Topic with unicode: åäöøæ€').'?=',
