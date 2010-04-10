@@ -218,7 +218,7 @@ class wwText extends wwFormElementBase{
 
 class wwEmail extends wwText{
   function __construct($Name, $Label, $PreSetValue = '', $ErrorMessage = 'Please enter a valid e-mail address.', $Required = false){
-    parent::__construct($Name, $Label, false, $PreSetValue, '^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})'.($Required ? '' : '?').'$', $ErrorMessage);
+    parent::__construct($Name, $Label, false, $PreSetValue, '^([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})'.($Required ? '' : '?').'$', $ErrorMessage);
   }
 }
 
