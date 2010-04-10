@@ -33,7 +33,7 @@ abstract class wwFormBase{
 
   function Render(){
     // Main form part.
-    print("\n".'<form class="wwForm" enctype="multipart/form-data" method="post" action="" id="'.$this->UniqueID.'" onsubmit="JavaScript:return Validate_'.$this->UniqueID.'();">');
+    print("\n".'<form class="wwForm" enctype="multipart/form-data" method="post" action="" id="'.$this->UniqueID.'" onsubmit="JavaScript:return Validate_'.preg_replace('/\W/', '_', $this->UniqueID).'();">');
       // Hidden field to identify the form at postback. (The "div"-tag is necesary for validation.)
       print('<div><input type="hidden" name="wwFormClassName" value="'.get_class($this).'" /></div>');
 
@@ -64,7 +64,7 @@ abstract class wwFormBase{
 
   protected function RenderValidationScript(){
     // Generate validation javascript.
-    print('<script type="text/javascript">'."\n//<![CDATA[\n".'function Validate_'.$this->UniqueID.'(){var TheForm = document.getElementById("'.$this->UniqueID.'");'."\n");
+    print('<script type="text/javascript">'."\n//<![CDATA[\n".'function Validate_'.preg_replace('/\W/', '_', $this->UniqueID).'(){var TheForm = document.getElementById("'.$this->UniqueID.'");'."\n");
     foreach($this->Elements as $Element){
       $Element->RenderValidationScript(); print("\n");
     }
